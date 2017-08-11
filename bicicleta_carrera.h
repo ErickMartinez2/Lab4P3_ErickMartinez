@@ -5,6 +5,7 @@
 class Bicicleta_Carrera : public Bicicleta{
 	private:
 	public:
+		Bicicleta_Carrera();
 		Bicicleta_Carrera(double, double, Llanta*);
 		double getPrecio();
 		double getPeso();

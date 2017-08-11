@@ -3,11 +3,10 @@
 #include "llanta.h"
 
 class Bicicleta {
-	private:
+	public:
 		double precio;
 		double peso;
 		Llanta* llanta;
-	public:
 		Bicicleta();
 };
 
