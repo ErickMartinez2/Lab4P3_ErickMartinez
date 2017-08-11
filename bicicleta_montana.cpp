@@ -1,5 +1,11 @@
 #include "bicicleta_montana.h"
 
+Bicicleta_Montana::Bicicleta_Montana() {
+	precio = 0;
+	peso = 0;
+	llanta = NULL;
+}
+
 Bicicleta_Montana::Bicicleta_Montana(double pprecio, double ppeso, Llanta* pllanta) {
 	precio = pprecio;
 	peso = ppeso;

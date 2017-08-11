@@ -1,5 +1,11 @@
 #include "bicicleta_carrera.h"
 
+Bicicleta_Carrera::Bicicleta_Carrera() {
+	precio = 0;
+	peso = 0;
+	llanta = NULL;
+}
+
 Bicicleta_Carrera::Bicicleta_Carrera(double pprecio, double ppeso, Llanta* pllanta) {
 	precio = pprecio;
 	peso = ppeso;

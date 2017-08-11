@@ -11,7 +11,7 @@ class Bicicleta_Montana : public Bicicleta{
 		double getPeso();
 		Llanta* getLlanta();
 		void setLlanta(Llanta*);
-		~Bicicleta_Montana();
+		//~Bicicleta_Montana();
 };
 
 #endif
