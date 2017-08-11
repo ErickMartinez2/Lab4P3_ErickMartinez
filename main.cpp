@@ -10,12 +10,7 @@ void liberarMatriz1(Bicicleta_Carrera**, int);
 void liberarMatriz2(Bicicleta_Montana**, int);
 
 int main() {
-	/*
-	   Llanta* llanta = new Llanta();
-	   Bicicleta* bicicleta = new Bicicleta();
-	   Bicicleta_Carrera* bicicleta_carrera = new Bicicleta_Carrera();
-	   Bicicleta_Montana* bicicleta_montana = new Bicicleta_Montana();
-	   */
+	cout << endl;
 	cout << "*** Jitensha Motors ***" << endl;
 	cout << "-> Información General de Camiones" << endl;
 	cout << "Ingrese el tamaño del primer camion: ";
@@ -79,29 +74,38 @@ int main() {
 					string color;
 					cin >> color;
 					if (tipo == 1) {
-						(camion_carrera[contador1][contador2]).setPrecio(precio);
-						(camion_carrera[contador1][contador2]).setPeso(peso);
-						Llanta* llanta = new Llanta(material, precio2, color);
-						(camion_carrera[contador1][contador2]).setLlanta(llanta);
-						contador2++;
-						if (contador2 == camion1_tamano2) {
-							contador1++;
-							contador2 = 0;
+						if (contador1 != camion1_tamano1) {
+							(camion_carrera[contador1][contador2]).setPrecio(precio);
+							(camion_carrera[contador1][contador2]).setPeso(peso);
+							Llanta* llanta = new Llanta(material, precio2, color);
+							(camion_carrera[contador1][contador2]).setLlanta(llanta);
+							contador2++;
+							if (contador2 == camion1_tamano2) {
+								contador1++;
+								contador2 = 0;
+							}
+							cout << "Bicicleta Agregada Exitosamente!!" << endl;
+						} else {
+							cout << "El camion ya esta lleno!" << endl;
 						}
 					} else {
 						if (tipo == 2) {
-							(camion_montana[contador3][contador4]).setPrecio(precio);
-							(camion_montana[contador3][contador4]).setPeso(peso);
-							Llanta* llanta2 = new Llanta(material, precio2, color);
-							(camion_montana[contador3][contador4]).setLlanta(llanta2);
-							contador4++;
-							if (contador4 == camion2_tamano2) {
-								contador3++;
-								contador4 = 0;
+							if (contador3 != camion2_tamano1) {
+								(camion_montana[contador3][contador4]).setPrecio(precio);
+								(camion_montana[contador3][contador4]).setPeso(peso);
+								Llanta* llanta2 = new Llanta(material, precio2, color);
+								(camion_montana[contador3][contador4]).setLlanta(llanta2);
+								contador4++;
+								if (contador4 == camion2_tamano2) {
+									contador3++;
+									contador4 = 0;
+								}
+								cout << "Bicicleta Agregada Exitosamente!!" << endl;
+							} else {
+								cout << "El camion ya esta lleno!" << endl;
 							}
 						}
 					}
-					cout << "Bicicleta Agregada Exitosamente!!" << endl;
 				} else {
 					if (opcion2 == 2) {
 						cout << endl;
@@ -128,35 +132,43 @@ int main() {
 						cout << "Ingrese el color de la llanta: ";
 						string color;
 						cin >> color;
-						int cont2 = contador2;
-						int cont4 = contador4;
 						if (tipo2 == 1) {
-							for (;contador1 < camion1_tamano1; contador1++) {
-								for (;contador2 < camion1_tamano2; contador2++) {
-									(camion_carrera[contador1][contador2]).setPrecio(precio);
-									(camion_carrera[contador1][contador2]).setPeso(peso);
-									Llanta* llanta = new Llanta(material, precio2, color);
-									(camion_carrera[contador1][contador2]).setLlanta(llanta);
+							if (contador1 != camion1_tamano1) {
+								for (;contador1 < camion1_tamano1; contador1++) {
+									for (;contador2 < camion1_tamano2; contador2++) {
+										(camion_carrera[contador1][contador2]).setPrecio(precio);
+										(camion_carrera[contador1][contador2]).setPeso(peso);
+										Llanta* llanta = new Llanta(material, precio2, color);
+										(camion_carrera[contador1][contador2]).setLlanta(llanta);
+									}
+									contador2 = 0;
 								}
-								contador2 = cont2;
+								cout << "Camion Llenado!!" << endl;
+							} else {
+								cout << "El camion ya esta lleno!!" << endl;
 							}
 						} else {
 							if (tipo2 == 2) {
-								for (;contador3 < camion2_tamano1; contador3++) {
-									for (;contador4 < camion2_tamano2; contador4++) {
-										(camion_montana[contador3][contador4]).setPrecio(precio);
-										(camion_montana[contador3][contador4]).setPeso(peso);
-										Llanta* llanta2 = new Llanta(material, precio2, color);
-										(camion_montana[contador3][contador4]).setLlanta(llanta2);
+								if (contador3 != camion2_tamano1) {
+									for (;contador3 < camion2_tamano1; contador3++) {
+										for (;contador4 < camion2_tamano2; contador4++) {
+											(camion_montana[contador3][contador4]).setPrecio(precio);
+											(camion_montana[contador3][contador4]).setPeso(peso);
+											Llanta* llanta2 = new Llanta(material, precio2, color);
+											(camion_montana[contador3][contador4]).setLlanta(llanta2);
+										}
+										contador4 = 0;
 									}
-									contador4 = cont4;
+									cout << "Camion Llenado!!" << endl;
+								} else {
+									cout << "El camion ya esta lleno!!" << endl;
 								}
-
 							}
-						}
-						cout << "Camion Llenado!!" << endl;
+						}	
 					} else {
-						cout << "Opcion Incorrecta!" << endl;
+						if (opcion2 != 3) {
+							cout << "Opcion Incorrecta!" << endl;
+						}
 					}
 				}
 			} while (opcion2 != 3);
@@ -178,22 +190,25 @@ int main() {
 								precio += (camion_carrera[i][j]).getLlanta() -> getPrecio();
 							}
 						}
-
+						cout << "El precio final del camion es: " << precio << endl;
 					} else {
 						cout << "El camion no esta lleno!!" << endl;
 					}
 				} else {
 					if (opcion3 == 2) {
-						for (int i = 0; i < camion2_tamano1; i++) {
-							for (int j = 0; j < camion2_tamano2; j++) {
-								precio += (camion_montana[i][j]).getPrecio();
-								precio += (camion_montana[i][j]).getLlanta() -> getPrecio();
+						if (contador3 == camion2_tamano1) {
+							for (int i = 0; i < camion2_tamano1; i++) {
+								for (int j = 0; j < camion2_tamano2; j++) {
+									precio += (camion_montana[i][j]).getPrecio();
+									precio += (camion_montana[i][j]).getLlanta() -> getPrecio();
+								}
 							}
+							cout << "El precio final del camion es: " << precio << endl;
+						} else {
+							cout << "El camion no esta lleno!!" << endl;
 						}
-
 					}
 				}
-				cout << "El precio final del camion es: " << precio << endl;
 			} else {
 				if (opcion == 3) {
 					cout << "Hasta Pronto!" << endl;
