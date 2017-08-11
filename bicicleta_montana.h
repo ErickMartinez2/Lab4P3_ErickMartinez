@@ -10,6 +10,8 @@ class Bicicleta_Montana : public Bicicleta{
 		double getPrecio();
 		double getPeso();
 		Llanta* getLlanta();
+		void setPrecio(double);
+		void setPeso(double);
 		void setLlanta(Llanta*);
 		//~Bicicleta_Montana();
 };

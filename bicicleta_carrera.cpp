@@ -28,3 +28,11 @@ void Bicicleta_Carrera::setLlanta(Llanta* pllanta) {
 	llanta = pllanta;
 }
 
+void Bicicleta_Carrera::setPrecio(double pprecio) {
+	precio = pprecio;
+}
+
+void Bicicleta_Carrera::setPeso(double ppeso) {
+	peso = ppeso;
+}
+

@@ -25,9 +25,7 @@ int main() {
 	int camion2_tamano1;
 	cin >> camion2_tamano1;
 	int camion1_tamano2 = Calcular_Camion(camion1_tamano1);
-	cout << camion1_tamano2 << endl;
 	int camion2_tamano2 = Calcular_Camion(camion2_tamano1);
-	cout << camion2_tamano2 << endl;
 	Bicicleta_Carrera** camion_carrera = new Bicicleta_Carrera*[camion1_tamano1];
 	for (int i = 0; i < camion1_tamano1; i++) {
 		camion_carrera[i] = new Bicicleta_Carrera[camion1_tamano2];
@@ -36,7 +34,7 @@ int main() {
 	for (int i = 0; i < camion2_tamano1; i++) {
 		camion_montana[i] = new Bicicleta_Montana[camion2_tamano2];
 	}
-	int opcion;
+	int opcion, contador1 = 0, contador2 = 0, contador3 = 0, contador4 = 0;
 	do {
 		cout << endl;
 		cout << "-> Menu Camion" << endl
@@ -56,10 +54,74 @@ int main() {
 					<< "Ingrese su opcion: ";
 				cin >> opcion2;
 				if (opcion2 == 1) {
-					
+					cout << endl;
+					cout << "-> Camion de Bicicletas" << endl
+						<< "1. Bicicletas de Carrera" << endl
+						<< "2. Bicicletas de Montana" << endl
+						<< "Ingrese su opcion: ";
+					int tipo;
+					cin >> tipo;
+					cout << endl;
+					cout << "-> Datos de la Bicicleta" << endl;
+					cout << "Ingrese el precio de la bicicleta: ";
+					double precio;
+					cin >> precio;
+					cout << "Ingrese el peso de la bicicleta: ";
+					double peso;
+					cin >> peso;
+					cout << "Ingrese el material de la llanta: ";
+					string material;
+					cin >> material;
+					cout << "Ingrese el precio de la llanta: ";
+					double precio2;
+					cin >> precio2;
+					cout << "Ingrese el color de la llanta: ";
+					string color;
+					cin >> color;
+					if (tipo == 1) {
+						(camion_carrera[contador1][contador2]).setPrecio(precio);
+						(camion_carrera[contador1][contador2]).setPeso(peso);
+						Llanta* llanta = new Llanta(material, precio2, color);
+						(camion_carrera[contador1][contador2]).setLlanta(llanta);
+						contador2++;
+						if (contador2 == camion1_tamano2) {
+							contador1++;
+							contador2 = 0;
+						}
+					} else {
+						if (tipo == 2) {
+							(camion_montana[contador3][contador4]).setPrecio(precio);
+							(camion_montana[contador3][contador4]).setPeso(peso);
+							Llanta* llanta2 = new Llanta(material, precio2, color);
+							(camion_montana[contador3][contador4]).setLlanta(llanta2);
+							contador4++;
+							if (contador4 == camion2_tamano2) {
+								contador3++;
+								contador4 = 0;
+							}
+						}
+					}
+					cout << "Bicicleta Agregada Exitosamente!!" << endl;
 				} else {
 					if (opcion2 == 2) {
-						
+						cout << endl;
+						cout << "-> Camion de Bicicletas" << endl
+							<< "1. Bicicletas de Carrera" << endl
+							<< "2. Bicicletas de Montana" << endl
+							<< "Ingrese su opcion: ";
+						int tipo2;
+						cin >> tipo2;
+						if (tipo2 == 1) {
+							for (int i = 0; i < camion1_tamano1; i++) {
+								for (int j = 0; j < camion1_tamano2; j++) {
+									
+								}
+							}
+						} else {
+							if (tipo2 == 2) {
+
+							}
+						}
 					} else {
 						cout << "Opcion Incorrecta!" << endl;
 					}

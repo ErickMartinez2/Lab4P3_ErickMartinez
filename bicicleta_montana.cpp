@@ -27,3 +27,11 @@ Llanta* Bicicleta_Montana::getLlanta() {
 void Bicicleta_Montana::setLlanta(Llanta* pllanta) {
 	llanta = pllanta;
 }
+
+void Bicicleta_Montana::setPrecio(double pprecio) {
+	precio = pprecio;
+}
+
+void Bicicleta_Montana::setPeso(double ppeso) {
+	peso = ppeso;
+}
